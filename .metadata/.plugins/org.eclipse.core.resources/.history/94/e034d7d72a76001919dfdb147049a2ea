@@ -1,0 +1,32 @@
+package com.selenium.master;
+
+import java.io.File;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.server.browserlaunchers.Sleeper;
+
+public class screan {
+
+	private static final String FileUtile = null;
+
+	public static void main(String[] args) {
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://google.com");
+		String title=driver.getTitle();
+		File Srcfile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtile.copyFile(Srcfile,new File("E:\\"+title+".png"));
+		driver.findElement(By.className("gb_d")).click();
+		Sleeper.sleepTightInSeconds(5000);
+		String title2=driver.getTitle();
+		File Srcfile2=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(Srcfile2, new File("E:\\"+title2+".png"));
+		
+	
+	}
+
+}

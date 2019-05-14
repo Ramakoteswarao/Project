@@ -1,0 +1,26 @@
+package com.selenium.master;
+
+import java.io.File;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class screan {
+
+	private static final String FileUtile = null;
+
+	public static void main(String[] args) {
+		WebDriver driver=new ChromeDriver();
+		driver.get("http://google.com");
+		String title=driver.getTitle();
+		File Srcfile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileUtile.copyFile(Srcfile,new File("E:\\"+title+".png"));
+		driver.findElement(By.xpath("//*[@id="gb"]/div/div[1]/div[1]/a")).click();
+		
+
+	}
+
+}
